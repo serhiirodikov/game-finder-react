@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
 import { Route } from 'react-router-dom'
-import { loadGames } from './actions/gamesAction'
 
 import GlobalStyles from './components/GlobalStyles'
 import Home from './pages/Home'

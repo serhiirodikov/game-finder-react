@@ -1,5 +1,4 @@
 import axios from 'axios'
-import React from 'react'
 import { gameScreenshotUrl, getGameById } from '../api'
 
 export const loadDetailByGame = (id) => async (dispatch) => {
