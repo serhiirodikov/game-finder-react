@@ -35,3 +35,5 @@ export const newGamesUrl = () => `${BASE_URL}${new_games}`
 export const getGameById = (id) => `${BASE_URL}games/${id}`
 
 export const gameScreenshotUrl = (id) => `${BASE_URL}games/${id}/screenshots`
+
+export const searchedGames = (search) => `${BASE_URL}games?search=${search}`

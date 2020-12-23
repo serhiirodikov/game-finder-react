@@ -10,6 +10,7 @@ import Game from '../components/Game'
 import GameDetail from '../components/GameDetail'
 
 import { useLocation } from 'react-router-dom'
+import Nav from '../components/Nav'
 
 const Home = () => {
   //get current location
@@ -21,7 +22,9 @@ const Home = () => {
     dispatch(loadGames())
   }, [dispatch])
   //get Data from state
-  const { popular, newGames, upcoming } = useSelector((state) => state.games)
+  const { popular, newGames, upcoming, searched } = useSelector(
+    (state) => state.games
+  )
 
   return (
     <GameList>
@@ -29,6 +32,26 @@ const Home = () => {
         <AnimatePresence>
           {pathId && <GameDetail pathId={pathId} />}
         </AnimatePresence>
+        <Nav />
+
+        {searched.length ? (
+          <div>
+            <h2>Searched Games</h2>
+            <Games>
+              {searched.map((game) => (
+                <Game
+                  name={game.name}
+                  released={game.released}
+                  id={game.id}
+                  image={game.background_image}
+                  key={game.id}
+                />
+              ))}
+            </Games>
+          </div>
+        ) : (
+          ''
+        )}
         <h2>UpComing Games</h2>
         <Games>
           {upcoming.map((game) => (
